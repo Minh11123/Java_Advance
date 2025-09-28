@@ -6,10 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declares the table name that backs an entity.
+ * Identifies the primary key field of an entity.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface Table {
+@Target(ElementType.FIELD)
+public @interface Id {
+    /**
+     * Optional explicit column name for the identifier.
+     */
     String name() default "";
 }
