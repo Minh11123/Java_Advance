@@ -6,10 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declares the table name that backs an entity.
+ * Marks a class as a persistable entity that can be handled by the pseudo JPA layer.
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface Table {
-    String name() default "";
+public @interface Entity {
+    /**
+     * Optional explicit entity name. When absent the simple class name is used.
+     */
+    String value() default "";
 }

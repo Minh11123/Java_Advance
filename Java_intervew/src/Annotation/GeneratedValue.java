@@ -6,10 +6,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Declares the table name that backs an entity.
+ * Describes how the identifier value of an entity should be generated.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-public @interface Table {
-    String name() default "";
+@Target(ElementType.FIELD)
+public @interface GeneratedValue {
+    GenerationType strategy() default GenerationType.AUTO;
 }
